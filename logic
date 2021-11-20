@@ -1,0 +1,56 @@
+#include "logic.h"
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+
+bool **create_board(const int height, const int width)
+{
+  bool **board = (bool **)malloc(sizeof(bool) * height);
+  for (int i = 0; i < height; i++)
+  {
+    board[i] = (bool *)malloc(sizeof(bool) * width);
+  }
+  return board;
+}
+
+void destroy_board(bool **board, const int height) {
+  for (int i = 0; i < height; i++) {
+    bool *arry = board[i];
+    free(arry);
+  }
+  free(*board);
+}
+
+void place_ships(bool **board, const int shipcount, const int width,
+                 const int height) {
+  // TODO implement this function
+  for (int i = 0; i < shipcount; i++)
+  {
+    int r = rand() % width;
+    int c = rand() % height;
+
+    while (board[r][c])
+    {
+      int r = rand() % width;
+      int c = rand() % height;
+      
+    }
+    board[r][c] = 1;
+    
+  }
+  
+  
+}
+
+void find_ships(bool **board, const int width, const int height) {
+  // TODO implement
+  
+}
+
+ResponseType guess(bool **board, const int x, const int y) {
+  // TODO implement this
+  return ResponseType::HIT;
+}
