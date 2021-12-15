@@ -1,9 +1,10 @@
+
 #include "logic.h"
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
 
-using namespace std;
+//using namespace std;
 
 
 bool **create_board(const int height, const int width)
@@ -50,29 +51,32 @@ void find_ships(bool **board, const int width, const int height, const int ship_
   //ResponseType response_type;
   for ( int u = 0; u < ship_count; u++)
   {
-     for(int i = 0; i < height; i++)
-    {
+    for(int i = 0; i < height; i++)
+    { 
       for (int j = 0; j < width; j++)
       {
         if (board[i][j] == 1)
         {
-          cout << "HIT" << endl;
+          std::cout << "HIT" << HIT << std::endl;
           board[i][j] = 0;
         }
         else if (board[i][j] == 0)
         {
-         cout << "MISS"<< endl;
+         std::cout << "MISS"<< MISS << std::endl;
         }
       
-        cout << board[i][j] << endl;
+        std::cout << board[i][j] << std::endl;
       }
     
 
     } 
-    //u++
+    u++;
   }
+  
+}
 
-//ResponseType guess(bool **board, const int x, const int y) {
-  // TODO implement this
-  //return ResponseType::HIT;
+// ResponseType guess(bool **board, const int x, const int y) {
+//   // TODO implement this
+//   Miss,HIT
+//   return ResponseType::HIT;
 //}
